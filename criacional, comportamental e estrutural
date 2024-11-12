@@ -305,27 +305,27 @@ class MotorEsportivo implements Motor {
     }
 }
 
-class RodasEsportivas implements Rodas {
-    public String getRodas() {
-        return "Rodas esportivas de liga leve";
-    }
-}
-
-class AssentoEsportivo implements Assento {
-    public String getAssento() {
-        return "Assentos esportivos com couro sintético";
-    }
-}
-
 class MotorLuxo implements Motor {
     public String getMotor() {
         return "Motor 5.0 V8";
     }
 }
 
+class RodasEsportivas implements Rodas {
+    public String getRodas() {
+        return "Rodas esportivas de liga leve";
+    }
+}
+
 class RodasLuxo implements Rodas {
     public String getRodas() {
         return "Rodas de alumínio";
+    }
+}
+
+class AssentoEsportivo implements Assento {
+    public String getAssento() {
+        return "Assentos esportivos com couro sintético";
     }
 }
 
@@ -345,9 +345,11 @@ class CarroEsportivoFactory implements CarroFactory {
     public Motor criarMotor() {
         return new MotorEsportivo();
     }
+
     public Rodas criarRodas() {
         return new RodasEsportivas();
     }
+
     public Assento criarAssento() {
         return new AssentoEsportivo();
     }
@@ -357,9 +359,11 @@ class CarroLuxoFactory implements CarroFactory {
     public Motor criarMotor() {
         return new MotorLuxo();
     }
+
     public Rodas criarRodas() {
         return new RodasLuxo();
     }
+
     public Assento criarAssento() {
         return new AssentoLuxo();
     }
@@ -387,7 +391,6 @@ class Carro {
         return "Carro [Motor=" + motor.getMotor() + ", Rodas=" + rodas.getRodas() + ", Assento=" + assento.getAssento() + "]";
     }
 }
-
 interface DescontoCarro {
     double calc(double valor);
 }
@@ -410,7 +413,6 @@ class DescontoVip implements DescontoCarro {
     }
 }
 
-// Classe Main para teste
 public class Main {
     public static void main(String[] args) {
         Carro carroEsportivo = new Carro(new CarroEsportivoFactory(), new DescontoBasico());
@@ -423,6 +425,101 @@ public class Main {
     }
 }
 
+interface Motor {
+    String getMotor();
+}
 
+interface Rodas {
+    String getRodas();
+}
 
+interface Assento {
+    String getAssento();
+}
 
+class MotorEsportivo implements Motor {
+    public String getMotor() {
+        return "Motor 3.0 Turbo";
+    }
+}
+
+class MotorLuxo implements Motor {
+    public String getMotor() {
+        return "Motor 5.0 V8";
+    }
+}
+
+class RodasEsportivas implements Rodas {
+    public String getRodas() {
+        return "Rodas esportivas de liga leve";
+    }
+}
+
+class RodasLuxo implements Rodas {
+    public String getRodas() {
+        return "Rodas de alumínio";
+    }
+}
+
+class AssentoEsportivo implements Assento {
+    public String getAssento() {
+        return "Assentos esportivos com couro sintético";
+    }
+}
+
+class AssentoLuxo implements Assento {
+    public String getAssento() {
+        return "Assentos de couro premium";
+    }
+}
+
+interface CarroFactory {
+    Motor criarMotor();
+    Rodas criarRodas();
+    Assento criarAssento();
+}
+
+class CarroEsportivoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorEsportivo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasEsportivas();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoEsportivo();
+    }
+}
+
+class CarroLuxoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorLuxo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasLuxo();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoLuxo();
+    }
+}
+
+class Carro {
+    private Motor motor;
+    private Rodas rodas;
+    private Assento assento;
+
+    public Carro(Motor motor, Rodas rodas, Assento assento) {
+        this.motor = motor;
+        this.rodas = rodas;
+        this.assento = assento;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro [Motor=" + motor.getMotor() + ", Rodas=" + rodas.getRodas() + ", Assento=" + assento.getAssento() + "]";
+    }
+}
