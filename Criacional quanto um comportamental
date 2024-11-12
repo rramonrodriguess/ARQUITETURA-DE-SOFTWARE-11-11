@@ -1,0 +1,428 @@
+interface Motor {
+    String getMotor();
+}
+
+interface Rodas {
+    String getRodas();
+}
+
+interface Assento {
+    String getAssento();
+}
+class MotorEsportivo implements Motor {
+    public String getMotor() {
+        return "Motor 3.0 Turbo";
+    }
+}
+
+class MotorLuxo implements Motor {
+    public String getMotor() {
+        return "Motor 5.0 V8";
+    }
+}
+
+class RodasEsportivas implements Rodas {
+    public String getRodas() {
+        return "Rodas esportivas de liga leve";
+    }
+}
+
+class RodasLuxo implements Rodas {
+    public String getRodas() {
+        return "Rodas de alumínio";
+    }
+}
+
+class AssentoEsportivo implements Assento {
+    public String getAssento() {
+        return "Assentos esportivos com couro sintético";
+    }
+}
+
+class AssentoLuxo implements Assento {
+    public String getAssento() {
+        return "Assentos de couro premium";
+    }
+}
+interface CarroFactory {
+    Motor criarMotor();
+    Rodas criarRodas();
+    Assento criarAssento();
+}
+class CarroEsportivoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorEsportivo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasEsportivas();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoEsportivo();
+    }
+}
+
+class CarroLuxoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorLuxo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasLuxo();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoLuxo();
+    }
+}
+class Carro {
+    private Motor motor;
+    private Rodas rodas;
+    private Assento assento;
+
+    public Carro(Motor motor, Rodas rodas, Assento assento) {
+        this.motor = motor;
+        this.rodas = rodas;
+        this.assento = assento;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro [Motor=" + motor.getMotor() + ", Rodas=" + rodas.getRodas() + ", Assento=" + assento.getAssento() + "]";
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        CarroFactory carroEsportivoFactory = new CarroEsportivoFactory();
+
+        Motor motorEsportivo = carroEsportivoFactory.criarMotor();
+        Rodas rodasEsportivas = carroEsportivoFactory.criarRodas();
+        Assento assentoEsportivo = carroEsportivoFactory.criarAssento();
+
+        Carro carroEsportivo = new Carro(motorEsportivo, rodasEsportivas, assentoEsportivo);
+        System.out.println("Carro Esportivo: " + carroEsportivo);
+
+        CarroFactory carroLuxoFactory = new CarroLuxoFactory();
+
+        Motor motorLuxo = carroLuxoFactory.criarMotor();
+        Rodas rodasLuxo = carroLuxoFactory.criarRodas();
+        Assento assentoLuxo = carroLuxoFactory.criarAssento();
+
+        Carro carroLuxo = new Carro(motorLuxo, rodasLuxo, assentoLuxo);
+        System.out.println("Carro de Luxo: " + carroLuxo);
+    }
+}
+
+interface Motor {
+    String getMotor();
+}
+
+interface Rodas {
+    String getRodas();
+}
+
+interface Assento {
+    String getAssento();
+}
+class MotorEsportivo implements Motor {
+    public String getMotor() {
+        return "Motor 3.0 Turbo";
+    }
+}
+
+class MotorLuxo implements Motor {
+    public String getMotor() {
+        return "Motor 5.0 V8";
+    }
+}
+
+class RodasEsportivas implements Rodas {
+    public String getRodas() {
+        return "Rodas esportivas de liga leve";
+    }
+}
+
+class RodasLuxo implements Rodas {
+    public String getRodas() {
+        return "Rodas de alumínio";
+    }
+}
+
+class AssentoEsportivo implements Assento {
+    public String getAssento() {
+        return "Assentos esportivos com couro sintético";
+    }
+}
+
+class AssentoLuxo implements Assento {
+    public String getAssento() {
+        return "Assentos de couro premium";
+    }
+}
+interface CarroFactory {
+    Motor criarMotor();
+    Rodas criarRodas();
+    Assento criarAssento();
+}
+class CarroEsportivoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorEsportivo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasEsportivas();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoEsportivo();
+    }
+}
+
+class CarroLuxoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorLuxo();
+    }
+
+    public Rodas criarRodas() {
+        return new RodasLuxo();
+    }
+
+    public Assento criarAssento() {
+        return new AssentoLuxo();
+    }
+}
+class Carro {
+    private Motor motor;
+    private Rodas rodas;
+    private Assento assento;
+
+    public Carro(Motor motor, Rodas rodas, Assento assento) {
+        this.motor = motor;
+        this.rodas = rodas;
+        this.assento = assento;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro [Motor=" + motor.getMotor() + ", Rodas=" + rodas.getRodas() + ", Assento=" + assento.getAssento() + "]";
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        CarroFactory carroEsportivoFactory = new CarroEsportivoFactory();
+
+        Motor motorEsportivo = carroEsportivoFactory.criarMotor();
+        Rodas rodasEsportivas = carroEsportivoFactory.criarRodas();
+        Assento assentoEsportivo = carroEsportivoFactory.criarAssento();
+
+        Carro carroEsportivo = new Carro(motorEsportivo, rodasEsportivas, assentoEsportivo);
+        System.out.println("Carro Esportivo: " + carroEsportivo);
+
+        CarroFactory carroLuxoFactory = new CarroLuxoFactory();
+
+        Motor motorLuxo = carroLuxoFactory.criarMotor();
+        Rodas rodasLuxo = carroLuxoFactory.criarRodas();
+        Assento assentoLuxo = carroLuxoFactory.criarAssento();
+
+        Carro carroLuxo = new Carro(motorLuxo, rodasLuxo, assentoLuxo);
+        System.out.println("Carro de Luxo: " + carroLuxo);
+    }
+}
+
+
+interface DescontoCarro {
+    double calc(double valor);  
+}
+
+class CarroBasico implements DescontoCarro {
+    @Override
+    public double calc(double valor) {
+        return valor * 0.95;  
+    }
+}
+
+class CarroPremium implements DescontoCarro {
+    @Override
+    public double calc(double valor) {
+        return valor * 0.90;  
+    }
+}
+
+class CarroVip implements DescontoCarro {
+    @Override
+    public double calc(double valor) {
+        return valor * 0.80;  
+    }
+}
+
+class Carro {
+    private DescontoCarro estrategia;  
+public void setDesconto(DescontoCarro estrategia) {
+        this.estrategia = estratégia;
+    }
+
+    public double calcDesconto(double valorFinal) {
+        return estrategia.calc(valorFinal);  
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Carro carro = new Carro();          
+        carro.setDesconto(new CarroBasico());
+        System.out.println("Carro Básico (Desconto 5%): " + carro.calcDesconto(100000));
+
+        carro.setDesconto(new CarroPremium());
+        System.out.println("Carro Premium (Desconto 10%): " + carro.calcDesconto(100000));
+        carro.setDesconto(new CarroVip());
+        System.out.println("Carro VIP (Desconto 20%): " + carro.calcDesconto(100000));
+    }
+}
+
+
+
+
+
+
+
+
+interface Motor {
+    String getMotor();
+}
+
+interface Rodas {
+    String getRodas();
+}
+
+interface Assento {
+    String getAssento();
+}
+
+class MotorEsportivo implements Motor {
+    public String getMotor() {
+        return "Motor 3.0 Turbo";
+    }
+}
+
+class RodasEsportivas implements Rodas {
+    public String getRodas() {
+        return "Rodas esportivas de liga leve";
+    }
+}
+
+class AssentoEsportivo implements Assento {
+    public String getAssento() {
+        return "Assentos esportivos com couro sintético";
+    }
+}
+
+class MotorLuxo implements Motor {
+    public String getMotor() {
+        return "Motor 5.0 V8";
+    }
+}
+
+class RodasLuxo implements Rodas {
+    public String getRodas() {
+        return "Rodas de alumínio";
+    }
+}
+
+class AssentoLuxo implements Assento {
+    public String getAssento() {
+        return "Assentos de couro premium";
+    }
+}
+
+interface CarroFactory {
+    Motor criarMotor();
+    Rodas criarRodas();
+    Assento criarAssento();
+}
+
+class CarroEsportivoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorEsportivo();
+    }
+    public Rodas criarRodas() {
+        return new RodasEsportivas();
+    }
+    public Assento criarAssento() {
+        return new AssentoEsportivo();
+    }
+}
+
+class CarroLuxoFactory implements CarroFactory {
+    public Motor criarMotor() {
+        return new MotorLuxo();
+    }
+    public Rodas criarRodas() {
+        return new RodasLuxo();
+    }
+    public Assento criarAssento() {
+        return new AssentoLuxo();
+    }
+}
+
+class Carro {
+    private Motor motor;
+    private Rodas rodas;
+    private Assento assento;
+    private DescontoCarro descontoCarro; // Estratégia de desconto
+
+    public Carro(CarroFactory factory, DescontoCarro descontoCarro) {
+        this.motor = factory.criarMotor();
+        this.rodas = factory.criarRodas();
+        this.assento = factory.criarAssento();
+        this.descontoCarro = descontoCarro;
+    }
+
+    public double aplicarDesconto(double valor) {
+        return descontoCarro.calc(valor);
+    }
+
+    @Override
+    public String toString() {
+        return "Carro [Motor=" + motor.getMotor() + ", Rodas=" + rodas.getRodas() + ", Assento=" + assento.getAssento() + "]";
+    }
+}
+
+interface DescontoCarro {
+    double calc(double valor);
+}
+
+class DescontoBasico implements DescontoCarro {
+    public double calc(double valor) {
+        return valor * 0.95;
+    }
+}
+
+class DescontoPremium implements DescontoCarro {
+    public double calc(double valor) {
+        return valor * 0.90;
+    }
+}
+
+class DescontoVip implements DescontoCarro {
+    public double calc(double valor) {
+        return valor * 0.80;
+    }
+}
+
+// Classe Main para teste
+public class Main {
+    public static void main(String[] args) {
+        Carro carroEsportivo = new Carro(new CarroEsportivoFactory(), new DescontoBasico());
+        System.out.println(carroEsportivo);
+        System.out.println("Preço com desconto (5%): " + carroEsportivo.aplicarDesconto(100000));
+
+        Carro carroLuxo = new Carro(new CarroLuxoFactory(), new DescontoVip());
+        System.out.println(carroLuxo);
+        System.out.println("Preço com desconto (20%): " + carroLuxo.aplicarDesconto(100000));
+    }
+}
+
+
+
+
